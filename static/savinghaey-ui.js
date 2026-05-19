@@ -22,18 +22,16 @@
     heroImage: "/static/savinghaey-alien.jpg",
     routes: {
       home: "/",
-      notice: "/notice/",
-      faq: "/faq/",
-      contact: "/contact/",
-      guideForNewMembers: "/guide-for-new-members/",
       scheduler: "/work-scheduler/",
       links: "/links/",
-      memo: "/memo/"
+      memo: "/memo/",
+      feedback: ""
     },
     usePublicThemeToggle: false,
-    copyProtection: false,
-    lightOnly: true
-  };
+    lightOnly: true,
+    copyProtection: false
+  });
+
 
   function mergeBrand(raw) {
     const cfg = raw || {};
