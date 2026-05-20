@@ -87,14 +87,14 @@
   "tasks": [
     {
       "id": "fy2026-start-setup",
-      "date": "2026-03-02",
+      "date": "2026-03-01",
       "time": "",
-      "title": "2026회계 업무 일정판 기준일 점검",
+      "title": "2026회계연도 시작",
       "type": "system",
       "scope": "연도초",
-      "priority": "high",
-      "status": "todo",
-      "memo": "기본 일정은 초안입니다. 학교별 실제 마감일·공문 기준으로 수정하세요.",
+      "priority": "normal",
+      "status": "doing",
+      "memo": "2026회계연도 시작일자",
       "link": "",
       "tags": [
         "2026회계",
