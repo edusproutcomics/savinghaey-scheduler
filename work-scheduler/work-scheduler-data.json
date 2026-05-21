@@ -46,6 +46,11 @@
       "value": "system",
       "label": "시스템",
       "shortLabel": "설정"
+    },
+    {
+      "value": "training",
+      "label": "교육·연수"
+      "shrtLabel": "연수"
     }
   ],
   "statuses": [
@@ -108,7 +113,7 @@
       "date": "2026-05-20",
       "time": "",
       "title": "지방공무원 정보화연수 (1일차)",
-      "type": "system",
+      "type": "training",
       "scope": "연도중",
       "priority": "normal",
       "status": "doing",
@@ -125,7 +130,7 @@
       "date": "2026-05-21",
       "time": "",
       "title": "지방공무원 정보화연수 (2일차)",
-      "type": "system",
+      "type": "training",
       "scope": "연도중",
       "priority": "normal",
       "status": "doing",
@@ -142,7 +147,7 @@
       "date": "2026-05-22",
       "time": "",
       "title": "지방공무원 정보화연수 (3일차)",
-      "type": "system",
+      "type": "training",
       "scope": "연도중",
       "priority": "normal",
       "status": "doing",
