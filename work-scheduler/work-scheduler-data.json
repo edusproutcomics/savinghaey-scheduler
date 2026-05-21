@@ -5,7 +5,7 @@
     "end": "2027-02-28",
     "domain": "savinghaey.co.kr"
   },
-  "storageKey": "savinghaey.work-scheduler.2026fy.v1",
+  "storageKey": "work-schedule",
   "categories": [
     {
       "value": "budget",
@@ -91,7 +91,7 @@
   ],
   "tasks": [
     {
-      "id": "fy2026-start-setup",
+      "id": "sch-20260301-01",
       "date": "2026-03-01",
       "time": "",
       "title": "2026회계연도 시작",
@@ -109,7 +109,7 @@
   ],
   "tasks": [
     {
-      "id": "fy2026-start-setup",
+      "id": "sch-20260520-01",
       "date": "2026-05-20",
       "time": "",
       "title": "지방공무원 정보화연수 (1일차)",
@@ -126,7 +126,7 @@
   ],
   "tasks": [
     {
-      "id": "fy2026-start-setup",
+      "id": "sch-20260521-01",
       "date": "2026-05-21",
       "time": "",
       "title": "지방공무원 정보화연수 (2일차)",
@@ -143,7 +143,7 @@
   ],
   "tasks": [
     {
-      "id": "fy2026-start-setup",
+      "id": "sch-20260522-01",
       "date": "2026-05-22",
       "time": "",
       "title": "지방공무원 정보화연수 (3일차)",
