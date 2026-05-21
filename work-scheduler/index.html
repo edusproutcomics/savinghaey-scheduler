@@ -1500,8 +1500,8 @@
       function getMonthGridDates(month) {
         const first = parseDate(month + "-01");
         if (!first) return [];
-        const mondayBasedDay = (first.getDay() + 6) % 7;
-        let cursor = addDays(first, -mondayBasedDay);
+        const sundayBasedDay = (first.getDay() + 6) % 7;
+        let cursor = addDays(first, -sundayBasedDay);
         const result = [];
         for (let i = 0; i < 42; i += 1) {
           result.push(formatISO(cursor));
@@ -1516,7 +1516,7 @@
         const month = state.currentMonth;
         el.calendarTitle.textContent = displayMonth(month);
 
-        const weekdays = ["월", "화", "수", "목", "금", "토", "일"];
+        const weekdays = ["일", "월", "화", "수", "목", "금", "토"];
         const cells = weekdays.map(function (day) { return '<div class="sch-weekday">' + day + '</div>'; });
 
         getMonthGridDates(month).forEach(function (date) {
