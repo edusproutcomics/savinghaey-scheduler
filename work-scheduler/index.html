@@ -104,6 +104,15 @@
       top: 72px;
     }
 
+    .sch-layout.is-calendar-view {
+      grid-template-columns: minmax(0, 1fr);
+    }
+
+    .sch-layout.is-calendar-view .sch-side-stack {
+      position: static;
+      top: auto;
+    }
+
     .sch-panel {
       display: grid;
       gap: var(--space-4);
