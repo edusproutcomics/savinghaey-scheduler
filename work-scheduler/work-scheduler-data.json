@@ -38,6 +38,11 @@
       "shortLabel": "마감"
     },
     {
+      "value": "businesstrip",
+      "label": "출장",
+      "shortLabel": "출장"
+    },
+    {
       "value": "personal",
       "label": "개인메모",
       "shortLabel": "개인"
@@ -56,7 +61,7 @@
   "statuses": [
     {
       "value": "todo",
-      "label": "대기"
+      "label": "예정"
     },
     {
       "value": "doing",
@@ -149,6 +154,22 @@
       "link": "",
       "tags": [
         "연수"
+      ]
+    },
+    {
+      "id": "sch-20260526-01",
+      "date": "2026-05-26",
+      "time": "13:00",
+      "title": "도교육청 TF팀 협의회",
+      "type": "businesstrip",
+      "scope": "연도중",
+      "priority": "normal",
+      "status": "todo",
+      "memo": "도교육청 방문",
+      "link": "",
+      "tags": [
+        "출장",
+        "협의회"
       ]
     }
   ]
