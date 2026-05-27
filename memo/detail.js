@@ -33,6 +33,8 @@
     els.printMeta.textContent = "현재 브라우저 localStorage에 해당 메모가 없습니다.";
     els.printBody.textContent = "메모 작성 페이지에서 저장된 메모를 다시 선택하세요.";
     els.btnEditMemo.href = "/memo/";
+    els.btnEditMemo.target = "_blank";
+    els.btnEditMemo.rel = "noopener noreferrer";
   }
 
   function renderMemo(memo) {
@@ -51,6 +53,8 @@
     els.printBody.innerHTML = escapeHtml(content);
     els.printFoot.textContent = "고해영 일병 구하기 · savinghaey.co.kr · " + updated;
     els.btnEditMemo.href = "/memo/?id=" + encodeURIComponent(memo.id);
+    els.btnEditMemo.target = "_blank";
+    els.btnEditMemo.rel = "noopener noreferrer";
 
     els.btnCopyMemo.addEventListener("click", function () {
       navigator.clipboard.writeText(content).then(function () {

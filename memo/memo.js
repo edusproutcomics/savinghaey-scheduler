@@ -126,8 +126,8 @@
         '  <p>' + escapeHtml(excerpt) + (excerpt.length >= 80 ? '…' : '') + '</p>',
         '  <div class="memo-card-actions">',
         '    <button class="btn ghost" type="button" data-action="edit" data-id="' + escapeHtml(memo.id) + '">편집</button>',
-        '    <a class="btn ghost" href="/memo/detail.html?id=' + encodeURIComponent(memo.id) + '">상세</a>',
-        '    <a class="btn primary" href="/memo/detail.html?id=' + encodeURIComponent(memo.id) + '&print=1">출력/PDF</a>',
+        '    <a class="btn ghost" href="/memo/detail.html?id=' + encodeURIComponent(memo.id) + '" target="_blank" rel="noopener noreferrer">상세</a>',
+        '    <a class="btn primary" href="/memo/detail.html?id=' + encodeURIComponent(memo.id) + '&print=1" target="_blank" rel="noopener noreferrer">출력/PDF</a>',
         '    <button class="btn danger" type="button" data-action="delete" data-id="' + escapeHtml(memo.id) + '">삭제</button>',
         '  </div>',
         '</article>'

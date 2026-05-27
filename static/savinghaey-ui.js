@@ -30,7 +30,7 @@
     usePublicThemeToggle: false,
     lightOnly: true,
     copyProtection: false
-  });
+  };
 
 
   function mergeBrand(raw) {
@@ -78,6 +78,117 @@
 
   function externalLinkAttrs(href) {
     return isExternalUrl(href) ? ' target="_blank" rel="noopener noreferrer"' : "";
+  }
+
+  const BUTTON_LINK_SELECTOR = [
+    "a.btn[href]",
+    "a.btn-home[href]",
+    "a.btn-menu[href]",
+    "a.sch-mini-btn[href]",
+    "a[data-open-new-tab='true'][href]"
+  ].join(", ");
+
+  function parseLinkUrl(href) {
+    try {
+      return new URL(String(href || "").trim(), window.location.href);
+    } catch (error) {
+      return null;
+    }
+  }
+
+  function normalizePagePath(pathname) {
+    const path = String(pathname || "/") || "/";
+    return path.replace(/\/index\.html?$/i, "/");
+  }
+
+  function isHttpPageUrl(url) {
+    return !!url && (url.protocol === "http:" || url.protocol === "https:");
+  }
+
+  function isSamePageHref(href) {
+    const raw = String(href || "").trim();
+
+    if (!raw) return false;
+    if (raw.charAt(0) === "#") return true;
+
+    const url = parseLinkUrl(raw);
+
+    if (!isHttpPageUrl(url)) return false;
+
+    return (
+      url.origin === window.location.origin &&
+      normalizePagePath(url.pathname) === normalizePagePath(window.location.pathname) &&
+      url.search === window.location.search
+    );
+  }
+
+  function shouldOpenButtonLinkInNewTab(link) {
+    if (!link || !link.matches || !link.matches(BUTTON_LINK_SELECTOR)) return false;
+    if (link.hasAttribute("download")) return false;
+
+    const href = link.getAttribute("href");
+
+    if (!href || isSamePageHref(href)) return false;
+
+    return isHttpPageUrl(parseLinkUrl(href));
+  }
+
+  function addRelToken(link, token) {
+    const rel = String(link.getAttribute("rel") || "").split(/\s+/).filter(Boolean);
+
+    if (!rel.includes(token)) rel.push(token);
+
+    link.setAttribute("rel", rel.join(" "));
+  }
+
+  function applyNewTabAttrs(link) {
+    if (!shouldOpenButtonLinkInNewTab(link)) return;
+
+    link.setAttribute("target", "_blank");
+    addRelToken(link, "noopener");
+    addRelToken(link, "noreferrer");
+    link.setAttribute("data-brand-link-policy", "new-tab");
+  }
+
+  function applyButtonLinkPolicy(root) {
+    const scope = root && root.querySelectorAll ? root : document;
+
+    if (scope.matches && scope.matches(BUTTON_LINK_SELECTOR)) {
+      applyNewTabAttrs(scope);
+    }
+
+    scope.querySelectorAll(BUTTON_LINK_SELECTOR).forEach(applyNewTabAttrs);
+  }
+
+  function bindButtonLinkPolicy() {
+    if (document.documentElement.getAttribute("data-brand-link-policy-bound") === "true") return;
+
+    document.documentElement.setAttribute("data-brand-link-policy-bound", "true");
+    applyButtonLinkPolicy(document);
+
+    document.addEventListener("click", function (event) {
+      if (event.defaultPrevented || event.button !== 0) return;
+
+      const target = event.target && event.target.closest ? event.target.closest(BUTTON_LINK_SELECTOR) : null;
+
+      if (!target) return;
+
+      applyNewTabAttrs(target);
+    }, true);
+
+    if (!window.MutationObserver) return;
+
+    const observer = new MutationObserver(function (mutations) {
+      mutations.forEach(function (mutation) {
+        mutation.addedNodes.forEach(function (node) {
+          if (node && node.nodeType === 1) {
+            applyButtonLinkPolicy(node);
+          }
+        });
+      });
+    });
+
+    observer.observe(document.documentElement, { childList: true, subtree: true });
   }
 
   function ensureMeta(name, content) {
@@ -294,6 +405,7 @@
     injectHeader(cfg);
     normalizeHomeHero(cfg);
     improvePageClasses();
+    bindButtonLinkPolicy();
 
     window.BrandUI = {
       brand: cfg,
@@ -302,6 +414,9 @@
       },
       interpolate: function (template) {
         return interpolate(template, cfg);
+      },
+      refreshLinkPolicy: function (root) {
+        applyButtonLinkPolicy(root || document);
       }
     };
   }

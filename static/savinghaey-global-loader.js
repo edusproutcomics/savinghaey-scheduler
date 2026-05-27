@@ -12,7 +12,7 @@ data-no-copy="true"
   if (window.__GO_OFFICER_GLOBAL_LOADER__) return;
   window.__GO_OFFICER_GLOBAL_LOADER__ = true;
 
-  const VERSION = "20260425-mm-brand-block-list";
+  const VERSION = "20260527-new-tab-link-policy";
 
   const DEFAULT_COPY_BLOCK_SELECTORS = [
     ".no-copy",

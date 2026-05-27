@@ -9,10 +9,10 @@
   <title>메모 상세/출력 | 고해영 일병 구하기</title>
   <link rel="canonical" href="https://savinghaey.co.kr/memo/detail.html" />
   <link rel="icon" href="/static/savinghaey-favicon.ico" />
-  <link rel="stylesheet" href="/static/savinghaey-style.css?v=20260519-static-prefix" />
-  <script src="/static/savinghaey-footer.js"></script>
-  <script src="/static/savinghaey-global-loader.js?v=20260519-static-prefix"></script>
-  <script defer src="./detail.js?v=20260519-static-prefix"></script>
+  <link rel="stylesheet" href="/static/savinghaey-style.css?v=20260527-new-tab-link-policy" />
+  <script src="/static/savinghaey-footer.js?v=20260527-new-tab-link-policy"></script>
+  <script src="/static/savinghaey-global-loader.js?v=20260527-new-tab-link-policy"></script>
+  <script defer src="./detail.js?v=20260527-new-tab-link-policy"></script>
   <style>
     .memo-detail-page {
       display: grid;
@@ -153,8 +153,8 @@
     <main class="container memo-detail-page">
       <section class="memo-detail-actions" aria-label="메모 출력 조작">
         <div class="memo-detail-actions-left">
-          <a class="btn ghost" href="/memo/">메모 목록</a>
-          <a class="btn ghost" id="btnEditMemo" href="/memo/">수정하러 가기</a>
+          <a class="btn ghost" href="/memo/" target="_blank" rel="noopener noreferrer">메모 목록</a>
+          <a class="btn ghost" id="btnEditMemo" href="/memo/" target="_blank" rel="noopener noreferrer">수정하러 가기</a>
         </div>
         <div class="memo-detail-actions-right">
           <button class="btn ghost" id="btnCopyMemo" type="button">내용 복사</button>

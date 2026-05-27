@@ -72,7 +72,7 @@
     if (isHomePage()) return;
     const link = toElement([
       '<div class="home-link-wrap" data-standard-home-link="true">',
-      '  <a class="btn-home" href="' + (cfg.routes.home || "/") + '">메인으로 돌아가기</a>',
+      '  <a class="btn-home" href="' + (cfg.routes.home || "/") + '" target="_blank" rel="noopener noreferrer">메인으로 돌아가기</a>',
       '</div>'
     ].join(""));
     document.body.appendChild(link);
